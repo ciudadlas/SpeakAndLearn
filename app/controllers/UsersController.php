@@ -2,6 +2,8 @@
 
 class UsersController extends BaseController {
 
+	// http://net.tutsplus.com/tutorials/php/authentication-with-laravel-4/
+
 	protected $layout = "layouts.main";
 
 	public function __construct() {

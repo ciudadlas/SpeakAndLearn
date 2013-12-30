@@ -71,9 +71,13 @@
                     <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li>
-                
-                <li>{{ HTML::link('users/register', 'Register') }}</li>   
-                <li>{{ HTML::link('users/login', 'Login') }}</li>   
+
+                @if(!Auth::check())
+                  <li>{{ HTML::link('users/register', 'Register') }}</li>   
+                  <li>{{ HTML::link('users/login', 'Login') }}</li>   
+                @else
+                  <li>{{ HTML::link('users/logout', 'logout') }}</li>
+                @endif
               </ul>
             </div>
           </div>
