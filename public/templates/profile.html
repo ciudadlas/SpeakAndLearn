@@ -1,0 +1,15 @@
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li ng-class="{ active: $state.includes('profile.lessons')}">
+            <a ui-sref='profile.lessons'>Journal</a>
+        </li>
+        <li ng-class="{ active: $state.includes('profile.graphs')}">
+            <a ui-sref='profile.graphs'>Graphs</a>
+        </li>
+        <li ng-class="{ active: $state.includes('profile.habits')}">
+            <a ui-sref='profile.habits'>Habits</a>
+        </li>
+    </ul>
+    <div ui-view></div>
+</div>
+

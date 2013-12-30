@@ -17,3 +17,11 @@ Route::get('/', function()
 });
 
 Route::controller('users', 'UsersController');
+
+Route::group(array('before' => 'auth'), function()
+{
+	Route::resource('lessons', 'LessonsController');
+
+	//Route::get('entries/bar', 'EntriesController@bar'); // add extra route
+	//Route::resource('entries', 'EntriesController');
+});

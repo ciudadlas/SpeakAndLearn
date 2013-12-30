@@ -1,0 +1,19 @@
+<div>
+    <img src="https://app.divshot.com/img/placeholder-100x100.gif" class="img-rounded">
+    <form ng-submit="submitNewUser()">
+        <label class="control-label">Name<br></label>
+        <input type="text" class="form-control input-sm" ng-model="person.name" required>
+
+        <label class="control-label">Gender<br></label>
+        <select class="form-control" ng-model="person.gender" required>
+            <option>Not specified</option>
+            <option>Female</option>
+            <option>Male</option>
+        </select>
+        
+        <label class="control-label">Notes<br></label>
+        <textarea class="form-control" ng-model="person.notes" required></textarea><br>
+
+        <button class="btn btn-info btn-sm">Create</button>
+    </form>
+</div>

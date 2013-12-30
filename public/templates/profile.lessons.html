@@ -1,0 +1,26 @@
+</br></br>
+<div class="entries">
+    <div class="entry" ng-repeat="lesson in lessons">
+        <div class="date">
+            <span class="day"> {{ getDateObject(lesson.lesson_date) | date:'d' }} </span> 
+            <span class="year"> {{ getDateObject(lesson.lesson_date) | date:'MMM yyyy' }} </span>
+        </div>
+        <div class="info">
+            <p class="margin-left-5">
+                <span class="text-muted"> {{ getDateObject(entry.lesson_date) | date:'shortTime' }} </span> 
+                <strong class="entry-title"> {{ lesson.feedback }}</strong> 
+                <span class="entry-location"> {{ lesson.transcription }}, {{ entry.state}}, {{ entry.country}} </span>
+
+            </p>
+
+            <span class="badge margin-left-5">hard-coded-tag-1</span> 
+            <span class="badge">hard-coded-tag-2</span>
+            
+            <div class="action">
+                <i class="fa fa-pencil"> </i> 
+                <span> | </span>
+                <span> <strong> Last modified: </strong> {{ getDateObject(entry.updated_at) | date: 'medium' }} </span>
+            </div>
+        </div>
+    </div>
+</div>
