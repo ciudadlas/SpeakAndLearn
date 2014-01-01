@@ -21,6 +21,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "/templates/login.html",
       controller: 'LoginController'
     })
+    
     .state('profile', {
       url: "/profile",
       templateUrl: '/templates/profile.html',
@@ -36,13 +37,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('profile.graphs', {
-      url: "/graphs",
-      templateUrl: '/templates/profile.graphs.html'
+
+    .state('preferences', {
+      url: "/preferences",
+      templateUrl: '/templates/preferences.html'
     })
-    .state('profile.habits', {
-      url: "/habits",
-      templateUrl: '/templates/profile.habits.html'
+    .state('preferences.account-summary', {
+      url: "/account-summary",
+      templateUrl: '/templates/preferences.account-summary.html'
+    })
+    .state('preferences.schedule', {
+      url: "/schedule",
+      templateUrl: '/templates/preferences.schedule.html',
+      controller: 'UpgradeController'
     })
 });
 

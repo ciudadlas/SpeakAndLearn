@@ -26,11 +26,8 @@
 		<!--<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"> </script>	-->
 		<script src="/js/lib/underscore-min.js"> </script> 
 
-    	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css">
-    	<!--<link rel="stylesheet" href="/css/lib/bootstrap.min.css">-->
-
-    	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
-    	<!--<link rel="stylesheet" href="/css/lib/font-awesome.css">-->
+    	<!--<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css">-->
+    	<link rel="stylesheet" href="/css/bootstrap.min.css">
 
     	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
     	<script src="/js/lib/jquery.min.js"> </script> 
@@ -44,10 +41,9 @@
 		<script src="/js/controllers/HomeController.js"> </script>
 		<script src="/js/controllers/LoginController.js"> </script>
 		<script src="/js/controllers/LessonsController.js"> </script>
-		<script src="/js/controllers/AddNewPersonController.js"> </script>
 		<script src="/js/controllers/ProfileController.js"> </script>
 		<script src="/js/controllers/ProfileJournalController.js"> </script>
-		<script src="/js/controllers/AddNewJournalEntryController.js"> </script>
+		<script src="/js/controllers/UpgradeController.js"> </script>
 
 
 		<!-- Services -->
@@ -61,8 +57,12 @@
 		<!-- Directives -->
 		<script src="/js/directives/ShowsMessageWhenHovered.js"> </script>
 
+		<script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
+
 		<script>
 	 	   angular.module("app").constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');
+	 	   angular.module("app").constant("BT_CSEK", '<?php echo Config::get("laravel-braintree::braintree.clientSideEncryptionKey"); ?>');
+	 	   
 		</script>
 	</head>
 
@@ -77,11 +77,11 @@
 
                 <ul class="nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/user/preferences"><i class="icon-cog"></i> Preferences</a></li>
-                            <li><a href="/help/support"><i class="icon-envelope"></i> Contact Support</a></li>
+                        <ul class="dropdown-menu">                        	
+                            <li><a ui-sref='preferences.account-summary'><i class="glyphicon glyphicon-cog"></i> Account Settings </a></li>
+                            <li><a href="/help/support"><i class="glyphicon glyphicon-question-sign"></i> Help </a></li>
                             <li class="divider"></li>
-                            <li><a href="/auth/logout"><i class="icon-off"></i> Logout</a></li>
+                            <li><a href="/auth/logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                         </ul>
                     </li>
                 </ul>

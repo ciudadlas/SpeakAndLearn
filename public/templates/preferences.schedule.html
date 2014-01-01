@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Payment Details
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" id="braintree-payment-form">
+
+					      <p>
+					        <label>First Name</label>
+					        <input type="text" class="form-control" name="first_name" id="first_name" required/>
+					      </p>
+					      <p>
+					        <label for="last_name">Last Name</label>
+					        <input type="text" class="form-control" name="last_name" id="last_name" required/>
+					      </p>
+
+                    <div class="form-group">
+                        <label for="cardNumber">
+                            CARD NUMBER</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                required autofocus autocomplete="off" data-encrypted-name="number" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5 col-md-5">
+                            <div class="form-group">
+                                <label for="expityMonth">
+                                    EXPIRY DATE</label>
+                                <div class="col-xs-5 col-lg-5">
+                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required size="2" data-encrypted-name="month"/>
+                                </div>
+                                <div class="col-xs-5 col-lg-5">
+                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required size="4" data-encrypted-name="year"/></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-md-2 pull-right">
+                            <div class="form-group">
+                                <label for="cvCode">
+                                    CV CODE</label>
+                                <input type="password" class="form-control" id="cvCode" placeholder="CVV" required  autocomplete="off" data-encrypted-name="cvv"/>
+                            </div>
+                        </div>
+                    </div>
+                      	<button type="submit" class="btn btn-success btn-lg btn-block submit-button" ng-disabled="isDisabled">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+    <p>Error:  {{ error }} </p>

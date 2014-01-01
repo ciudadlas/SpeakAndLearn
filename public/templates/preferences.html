@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked admin-menu">
+                <li ng-class="{ active: $state.includes('preferences.account-summary')}"><a ui-sref="preferences.account-summary"><i class="fa fa-home fa-fw"></i>Account Summary</a></li>
+                <li ng-class="{ active: $state.includes('preferences.schedule')}"><a ui-sref="preferences.schedule"><i class="fa fa-home fa-fw"></i>Speaking Schedule</a></li>               
+            </ul>
+        </div>
+        <div class="col-md-9 well admin-content" ui-view></div>
+    </div>
+</div>
