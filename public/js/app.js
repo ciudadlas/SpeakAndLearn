@@ -5,7 +5,7 @@
 
 // window.scope = $scope -> to inspect in console
 
-var app = angular.module("app", ['ui.router', 'ngSanitize']);
+var app = angular.module("app", ['ui.router', 'ngSanitize', 'ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   //

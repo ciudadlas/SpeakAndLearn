@@ -4,7 +4,7 @@
 	<head>
 	    <meta name="viewport" content="width=device-width">
 		<meta charset="UTF-8">
-		<title> Healthy.ful </title>
+		<title> Speak & Learn </title>
 		<link rel="stylesheet" href="/css/app.css">
 
 		<!-- Angular.js -->
@@ -34,6 +34,10 @@
 
     	<!--<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>-->
     	<script src="/js/lib/bootstrap.min.js"> </script>
+
+    	<script src="/js/lib/ui-bootstrap-tpls-0.9.0.min.js"> </script>
+
+    	
 
 			
 		<script src="/js/app.js"> </script>
@@ -72,7 +76,7 @@
 		        <div class="navbar-header">
 		            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		                <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-		            </button><a href="#" class="navbar-brand"><b>Healthy.ful</b></a>
+		            </button><a href="#" class="navbar-brand"><b>Speak & Learn</b></a>
 		        </div>
 
                 <ul class="nav pull-right">

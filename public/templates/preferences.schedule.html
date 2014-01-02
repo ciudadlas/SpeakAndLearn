@@ -1,7 +1,16 @@
 <div class="container">
-    <div class="row">
+
+
+
+    <div class="row" ng-show="accountTypeIsFree">
+
+
         <div class="col-md-8">
+
+
             <div class="panel panel-default">
+
+
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         Payment Details
@@ -11,11 +20,11 @@
                     <form role="form" id="braintree-payment-form">
 
 					      <p>
-					        <label>First Name</label>
+					        <label>FIRST NAME</label>
 					        <input type="text" autofocus class="form-control" name="first_name" id="first_name" required/>
 					      </p>
 					      <p>
-					        <label for="last_name">Last Name</label>
+					        <label for="last_name">LAST NAME</label>
 					        <input type="text" class="form-control" name="last_name" id="last_name" required/>
 					      </p>
 
@@ -30,9 +39,9 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-5 col-md-5">
-                            <div class="form-group">
-                                <label for="expityMonth">
-                                    EXPIRY DATE</label>
+                            <label for="expityMonth"> EXPIRY DATE</label>
+
+                            <div>
                                 <div class="col-xs-5 col-lg-5">
                                     <input type="text" class="form-control" id="expityMonth" placeholder="MM" required size="2" data-encrypted-name="month"/>
                                 </div>
@@ -48,8 +57,24 @@
                             </div>
                         </div>
                     </div>
-                      	<button type="submit" class="btn btn-success btn-lg btn-block submit-button" ng-disabled="isDisabled">Submit</button>
+
+
+                    <label for="expityMonth">PLAN</label>
+
+                        <select class="form-control" ng-model="color" ng-options="c.name for c in colors"></select><br>
+
+
+
+                    </br>
+
+
+
+                      	<button type="submit" class="btn btn-success btn-lg btn-block submit-button" ng-disabled="isDisabled">
+                            Submit
+                        </button>
                     </form>
+
+
                 </div>
             </div>
 
@@ -59,4 +84,5 @@
     </div>
 </div>
 
-    <p>Error:  {{ error }} </p>
+<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+
