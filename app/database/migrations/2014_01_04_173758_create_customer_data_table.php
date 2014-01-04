@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubscriptionsTable extends Migration {
+class CreateCustomerDataTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,12 +11,11 @@ class CreateSubscriptionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('subscriptions', function($table)
+		Schema::create('customer_data', function($table)
 		{
     		$table->increments('id');
-    		$table->string('user_id')->unique();
-    		$table->integer('plan_id');
-    		$table->enum('plan_status', array('active', 'suspended', 'canceled'));
+    		$table->integer('user_id')->unique();
+    		$table->string('bt_customer_id')->unique();
    			$table->timestamps();
 		});
 	}
@@ -28,7 +27,7 @@ class CreateSubscriptionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('subscriptions');
+		Schema::drop('customer_data');
 	}
 
 }

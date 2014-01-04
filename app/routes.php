@@ -17,16 +17,11 @@ Route::get('/', function()
 });
 
 Route::controller('users', 'UsersController');
+Route::resource('subscriptions', 'SubscriptionsController');
 
 Route::group(array('before' => 'auth'), function()
 {
 	Route::resource('lessons', 'LessonsController');
-	Route::resource('subscriptions', 'SubscriptionsController');
-
 	Route::post('transactions/createNewCustomer', 'TransactionController@createNewCustomer');
-
-
-
-	//Route::get('entries/bar', 'EntriesController@bar'); // add extra route
-	//Route::resource('entries', 'EntriesController');
+	
 });

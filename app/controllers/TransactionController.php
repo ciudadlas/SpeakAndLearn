@@ -7,14 +7,14 @@ class TransactionController extends BaseController
 		$email = Auth::user()->email;
 
 		$result = Braintree_Customer::create(array(
-		    "firstName" => $_POST["first_name"],
-		    "lastName" => $_POST["last_name"],
+		    "firstName" => Input::get("first_name"),
+		    "lastName" => Input::get("last_name"),
 		    "email" => $email,
 		    "creditCard" => array(
-		        "number" => $_POST["number"],
-		        "expirationMonth" => $_POST["month"],
-		        "expirationYear" => $_POST["year"],
-		        "cvv" => $_POST["cvv"],
+		        "number" => Input::get("number"),
+		        "expirationMonth" => Input::get("month"),
+		        "expirationYear" => Input::get("year"),
+		        "cvv" => Input::get("cvv"),
 		        'options' => array(
          			'verifyCard' => true
         		)
@@ -23,7 +23,13 @@ class TransactionController extends BaseController
 		
 		if ($result->success) 
 		{
-			return $this->createNewSubscription($result->customer->id);		    
+			// Save BT customer id in our system
+			$customerData = new CustomerData;
+			$customerData->user_id = Auth::user()->id;
+			$customerData->bt_customer_id = $result->customer->id;
+			$customerData->save();
+
+			return $this->createNewSubscription($result->customer->id, Input::get("plan_id"), Auth::user()->id);
 		} 
 		else 
 		{
@@ -39,21 +45,32 @@ class TransactionController extends BaseController
 		}
 	}
 
-	public function createNewSubscription($customer_id)
+	public function createNewSubscription($bt_customer_id, $plan_id, $user_id)
 	{
+
+		$plan = SubscriptionPlan::find($plan_id);
+
 		try 
 		{
-		    $customer = Braintree_Customer::find($customer_id);
+		    $customer = Braintree_Customer::find($bt_customer_id);
 		    $payment_method_token = $customer->creditCards[0]->token;
 
 		    $result = Braintree_Subscription::create(array(
 		        'paymentMethodToken' => $payment_method_token,
-		        'planId' => 'cpgm'
+		        'planId' => $plan->bt_plan_id
 		    ));
 
 		    if ($result->success) 
 		    {
-		        echo("Success! Subscription " . $result->subscription->id . " is " . $result->subscription->status);
+		    	// Create new subscription record in our DB
+		    	$subscription = new Subscription;
+		    	$subscription->user_id = $user_id;
+				$subscription->plan_id = $plan_id;
+				$subscription->plan_status = 'active';
+				$subscription->save();
+
+		    	// Respons with success
+		    	Response::json(array('subscription_id' => $result->subscription->id, 'subscription_status' => $result->subscription->status));     
 		    } 
 		    else 
 		    {	    	
