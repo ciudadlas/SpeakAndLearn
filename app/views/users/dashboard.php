@@ -22,6 +22,8 @@
 		<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular-sanitize.min.js"> </script>-->
 		<script src="/js/lib/angular-sanitize.min.js"> </script> 
 
+		<script src="/js/lib/angular-audio-player.min.js"> </script>
+
 		<!-- Underscore.js -->	 
 		<!--<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"> </script>	-->
 		<script src="/js/lib/underscore-min.js"> </script> 
@@ -33,11 +35,15 @@
     	<script src="/js/lib/jquery.min.js"> </script> 
 
     	<!--<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>-->
-    	<script src="/js/lib/bootstrap.min.js"> </script>
+    	<script src="/js/lib/bootstrap.min.js"> </script>    	
 
     	<script src="/js/lib/ui-bootstrap-tpls-0.9.0.min.js"> </script>
 
-    	
+		<script src="/js/lib/mediaelement/mediaelement-and-player.min.js"></script>
+		<link rel="stylesheet" href="/js/lib/mediaelement/mediaelementplayer.css" />
+
+
+    	<script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
 
 			
 		<script src="/js/app.js"> </script>
@@ -45,6 +51,9 @@
 		<script src="/js/controllers/HomeController.js"> </script>
 		<script src="/js/controllers/LoginController.js"> </script>
 		<script src="/js/controllers/LessonsController.js"> </script>
+		<script src="/js/controllers/LessonDetailController.js"> </script>
+
+		
 		<script src="/js/controllers/ProfileController.js"> </script>
 		<script src="/js/controllers/ProfileJournalController.js"> </script>
 		<script src="/js/controllers/UpgradeController.js"> </script>
@@ -60,8 +69,9 @@
 
 		<!-- Directives -->
 		<script src="/js/directives/ShowsMessageWhenHovered.js"> </script>
+		<script src="/js/directives/MediaElement.js"> </script>
 
-		<script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
+		
 
 		<script>
 	 	   angular.module("app").constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');

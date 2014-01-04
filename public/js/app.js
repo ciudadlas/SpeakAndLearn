@@ -5,7 +5,7 @@
 
 // window.scope = $scope -> to inspect in console
 
-var app = angular.module("app", ['ui.router', 'ngSanitize', 'ui.bootstrap']);
+var app = angular.module("app", ['ui.router', 'ngSanitize', 'ui.bootstrap', 'audioPlayer']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   //
@@ -34,6 +34,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
       resolve: { 
         lessons: function(LessonsService) {
           return LessonsService.get();
+        }
+      }
+    })
+
+    .state('profile.lesson-detail', {
+      url: "/lessons/:lessonID",
+      templateUrl: '/templates/profile.lesson-detail.html',
+      controller: 'LessonDetailController',
+      resolve: { 
+        lesson: function(LessonsService, $stateParams) {
+          return LessonsService.get($stateParams.lessonID);
         }
       }
     })

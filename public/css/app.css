@@ -100,3 +100,8 @@ border-top-right-radius: 0;
     width: 19px;
 }
 
+/* ----- */
+
+#lesson-table tr {
+    cursor: pointer;
+}

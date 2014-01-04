@@ -11,15 +11,15 @@ app.factory("LessonsService", function($http, $sanitize, CSRF_TOKEN) {
 
 	return {
 		// Returns all lessons that belongs to the logged in user
-		get: function(profileID) {
+		get: function(lessonID) {
 
-			if (profileID === undefined)
+			if (lessonID === undefined)
 			{
 				return $http.get('/lessons');
 			}				
 			else
 			{
-				return $http.get('/lessons/' + profileID);
+				return $http.get('/lessons/' + lessonID);
 			}				
 		},
 

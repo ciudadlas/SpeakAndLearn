@@ -1,4 +1,4 @@
-app.controller("LessonsController", function($scope, $location, lessons) {
+app.controller("LessonsController", function($scope, $location, lessons, $state) {
 	
 	$scope.lessons = lessons.data;
 
