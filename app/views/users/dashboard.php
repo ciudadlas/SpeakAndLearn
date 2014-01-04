@@ -57,6 +57,7 @@
 		<script src="/js/controllers/ProfileController.js"> </script>
 		<script src="/js/controllers/ProfileJournalController.js"> </script>
 		<script src="/js/controllers/UpgradeController.js"> </script>
+		<script src="/js/controllers/AccountSummaryController.js"> </script>
 
 
 		<!-- Services -->
@@ -66,6 +67,8 @@
 		<script src="/js/services/LessonsService.js"> </script>
 		<script src="/js/services/ProfileService.js"> </script>
 		<script src="/js/services/JournalService.js"> </script>
+		<script src="/js/services/SubscriptionService.js"> </script>
+
 
 		<!-- Directives -->
 		<script src="/js/directives/ShowsMessageWhenHovered.js"> </script>

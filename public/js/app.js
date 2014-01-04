@@ -55,12 +55,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('preferences.account-summary', {
       url: "/account-summary",
-      templateUrl: '/templates/preferences.account-summary.html'
+      templateUrl: '/templates/preferences.account-summary.html',
+      controller: 'AccountSummaryController'
     })
     .state('preferences.schedule', {
       url: "/schedule",
       templateUrl: '/templates/preferences.schedule.html',
-      controller: 'UpgradeController'
+      controller: 'UpgradeController',
+      resolve: { 
+        subscriptions: function(SubscriptionService) {
+          return SubscriptionService.get();
+        }
+      }
     })
 });
 

@@ -21,6 +21,7 @@ Route::controller('users', 'UsersController');
 Route::group(array('before' => 'auth'), function()
 {
 	Route::resource('lessons', 'LessonsController');
+	Route::resource('subscriptions', 'SubscriptionsController');
 
 	Route::post('transactions/createNewCustomer', 'TransactionController@createNewCustomer');
 

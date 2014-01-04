@@ -1,16 +1,21 @@
-app.controller('UpgradeController', function($scope, $location, BT_CSEK) {
+app.controller('UpgradeController', function($scope, $location, BT_CSEK, SessionService, subscriptions) {
+
+	$scope.plans = subscriptions.data;
+	$scope.plan = $scope.plans[0];
+
+	var cacheSubscriptionLevel = function() {
+		SessionService.set('subscription_level', 'paid');
+	}
+
+	var uncacheSubscriptionLevel = function() {
+		SessionService.unset('authenticated')
+	}
 
 	$scope.accountTypeIsFree = true;
 
 	$scope.alerts = [];
 
-	$scope.colors = [
-    	{ name:'Basic', shade:'$80 / month' },
-    	{ name:'Gold', shade:'$150 / month' },
-    	{ name:'Master', shade:'$200 / month' }   	
-  	];
-
-  	$scope.color = $scope.colors[0]; // basic
+  	
 
   	var addAlert = function(message, type) {
     	$scope.alerts.push({ type: type, msg: message });
@@ -42,6 +47,8 @@ app.controller('UpgradeController', function($scope, $location, BT_CSEK) {
 
 			$scope.alerts = [];
 		  	addAlert("Your have successfuly enrolled.", "success");
+
+		  	cacheSubscriptionLevel();
 
 		  	$scope.isDisabled = false;
 		  	$scope.accountTypeIsFree = false;

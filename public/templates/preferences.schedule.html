@@ -61,7 +61,12 @@
 
                     <label for="expityMonth">PLAN</label>
 
-                        <select class="form-control" ng-model="plan" ng-options="c.name for c in colors"></select><br>
+
+                    <select class="form-control" name="plan_id">
+                        <option ng-repeat="plan in plans" value="{{plan.id}}"> {{plan.name}} (${{plan.price_in_usd}} / month)
+                        </option>
+                    </select>
+
 
 
 
