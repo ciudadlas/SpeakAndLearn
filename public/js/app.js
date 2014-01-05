@@ -10,7 +10,7 @@ var app = angular.module("app", ['ui.router', 'ngSanitize', 'ui.bootstrap', 'aud
 app.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /people
-  $urlRouterProvider.otherwise("/profile/lessons");
+  $urlRouterProvider.otherwise("/lessons");
   $urlRouterProvider.when('/people/:profileID', '/people/:profileID/journal');
 
   //
@@ -18,18 +18,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('login', {
       url: "/login",
-      templateUrl: "/templates/login.html",
+      templateUrl: "/templates/login/login.html",
       controller: 'LoginController'
     })
-    
+
+    // Profile
     .state('profile', {
-      url: "/profile",
-      templateUrl: '/templates/profile.html',
+      abstract: true,
+      templateUrl: '/templates/profile/profile.html',
       controller: 'ProfileController'
     })
     .state('profile.lessons', {
       url: "/lessons",
-      templateUrl: '/templates/profile.lessons.html',
+      templateUrl: '/templates/profile/profile.lessons.html',
       controller: 'LessonsController',
       resolve: { 
         lessons: function(LessonsService) {
@@ -37,10 +38,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-
     .state('profile.lesson-detail', {
       url: "/lessons/:lessonID",
-      templateUrl: '/templates/profile.lesson-detail.html',
+      templateUrl: '/templates/profile/profile.lesson-detail.html',
       controller: 'LessonDetailController',
       resolve: { 
         lesson: function(LessonsService, $stateParams) {
@@ -49,18 +49,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('preferences', {
-      url: "/preferences",
-      templateUrl: '/templates/preferences.html'
+    // Account Settings
+    .state('account-settings', {
+      abstract: true,
+      url: "/account-settings",
+      templateUrl: '/templates/account-settings/account-settings.html'
     })
-    .state('preferences.account-summary', {
+    .state('account-settings.account-summary', {
       url: "/account-summary",
-      templateUrl: '/templates/preferences.account-summary.html',
+      templateUrl: '/templates/account-settings/account-settings.account-summary.html',
       controller: 'AccountSummaryController'
     })
-    .state('preferences.schedule', {
-      url: "/schedule",
-      templateUrl: '/templates/preferences.schedule.html',
+    .state('account-settings.billing-info', {
+      url: "/billing-info",
+      templateUrl: '/templates/account-settings/account-settings.billing-info.html'      
+    })
+    .state('account-settings.upgrade', {  
+      url: "/upgrade",    
+      templateUrl: '/templates/account-settings/account-settings.upgrade.html',
       controller: 'UpgradeController',
       resolve: { 
         subscriptions: function(SubscriptionService) {
@@ -68,6 +74,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+    // Help
+    .state('help', {
+      abstract: true,
+      url: "/help",
+      templateUrl: '/templates/help/help.html'
+    })
+    .state('help.faq', {
+      url: "/faq",
+      templateUrl: '/templates/help/help.faq.html'
+    })
+    .state('help.contact', {
+      url: "/contact",
+      templateUrl: '/templates/help/help.contact.html'      
+    })
+
 });
 
 

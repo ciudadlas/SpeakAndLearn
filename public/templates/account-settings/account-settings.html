@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked admin-menu">
+                <li ng-class="{ active: $state.includes('account-settings.account-summary')}"><a ui-sref="account-settings.account-summary"><i class="fa fa-home fa-fw"></i>Account Summary</a></li>
+
+                <li ng-class="{ active: $state.includes('account-settings.billing-info')}"><a ui-sref="account-settings.billing-info"><i class="fa fa-home fa-fw"></i>Billing Info</a></li>               
+                <li ng-class="{ active: $state.includes('account-settings.upgrade')}"><a ui-sref="account-settings.upgrade"><i class="fa fa-home fa-fw"></i>Upgrade</a></li>               
+            </ul>
+        </div>
+        <div class="col-md-9 well admin-content" ui-view></div>
+    </div>
+</div>

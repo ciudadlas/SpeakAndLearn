@@ -1,9 +1,0 @@
-<div class="container">
-  <button ui-sref='peoplenew'> Add new person </button> </br> </br>
-  <div class="row">
-    <div class="col-md-4" style="text-align:center; border:1px solid #423123;" ng-repeat="person in people">
-      <a href="#/people/{{person.id}}"><img ng-src="{{ person.profile_image_url }}"></a>
-      <p> {{ person.name }} </p>
-    </div>
-  </div>
-</div>

@@ -68,6 +68,7 @@
 		<script src="/js/services/ProfileService.js"> </script>
 		<script src="/js/services/JournalService.js"> </script>
 		<script src="/js/services/SubscriptionService.js"> </script>
+		<script src="/js/services/AccountService.js"> </script>
 
 
 		<!-- Directives -->
@@ -95,8 +96,8 @@
                 <ul class="nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
                         <ul class="dropdown-menu">                        	
-                            <li><a ui-sref='preferences.account-summary'><i class="glyphicon glyphicon-cog"></i> Account Settings </a></li>
-                            <li><a href="/help/support"><i class="glyphicon glyphicon-question-sign"></i> Help </a></li>
+                            <li><a ui-sref='account-settings.account-summary'><i class="glyphicon glyphicon-cog"></i> Account Settings </a></li>
+                            <li><a ui-sref='help.faq'><i class="glyphicon glyphicon-question-sign"></i> Help </a></li>
                             <li class="divider"></li>
                             <li><a href="/auth/logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                         </ul>
